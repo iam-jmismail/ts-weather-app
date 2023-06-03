@@ -28,6 +28,16 @@ export class ResourceConflictError extends Error {
     }
 }
 
+export class ValidationError<T = undefined> extends Error {
+    errors: T extends undefined ? Record<string, string>[] | null : T;
+    constructor(errors: T extends undefined ? Record<string, string>[] | null : T, message: string) {
+        super(message)
+        this.name = "ValidationError"
+        this.message = message;
+        this.errors = errors
+    }
+}
+
 
 export const errorHandler = (err: Error, _req: Request, res: Response, _next: NextFunction) => {
 
@@ -51,6 +61,11 @@ export const errorHandler = (err: Error, _req: Request, res: Response, _next: Ne
     // Resource Conflicts!
     if (err instanceof ResourceConflictError) {
         return res.sendConflictResponse(err.message)
+    }
+
+    // Validation Error !
+    if (err instanceof ValidationError) {
+        return res.sendUnprocessableEntityResponse(err.errors, err.message)
     }
 
     // Other Errors 

@@ -155,14 +155,17 @@ export function responseHandler(
    * Request contains semantic errors ( Validation Errors ).
    */
   res.sendUnprocessableEntityResponse = function (
-    errors: Record<string, string>[],
+    errors: Record<string, string>[] | null,
     message?: string
   ): Response {
-    const responseData = {
+
+    const responseData: Record<'status' | 'message', string> & { errors?: Record<string, string>[] | undefined } = {
       status: "ERROR",
       message: message ?? "Validation error",
-      errors,
     };
+
+    if (errors) responseData['errors'] = errors
+
     return res.status(RESPONSE_CODES.UN_PROCESSABLE_ENTITY).json(responseData);
   };
 

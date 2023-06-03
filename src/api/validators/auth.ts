@@ -8,3 +8,8 @@ export const register: ValidationChain[] = [
     body('email').isString().isEmail().withMessage('Invalid Email'),
     body('password').isString().isLength({ min: 4 }).withMessage('Invalid Password'),
 ]
+
+export const login: ValidationChain[] = [
+    body('email').isString().isEmail().withMessage('Invalid Email'),
+    body('password').isString().isLength({ min: 4 }).withMessage('Invalid Password'),
+]

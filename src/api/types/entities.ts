@@ -8,7 +8,9 @@ export interface UserEntity {
     password: string;
     role: UserTypeUnion,
     location?: Location
-    token: string
+    token: string,
+    status: boolean,
+    is_deleted: boolean
 }
 
 export interface UserSessionEntity {

@@ -14,7 +14,7 @@ interface CustomExpressResponse {
     message?: string
   ) => void;
   sendUnprocessableEntityResponse: (
-    errors: Record<string, string>[],
+    errors: Record<string, string>[] | null,
     message?: string
   ) => void;
   sendTooManyRequestsResponse: (message?: string) => void;
