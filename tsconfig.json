@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": false,
+    "baseUrl": ".",
+    "paths": {
+      "@models/*": ["src/api/models/*"],
+      "@controllers/*": ["src/api/controllers/*"],
+      "@helpers/*": ["src/api/helpers/*"],
+      "@services/*": ["src/api/services/*"],
+      "@lib/*": ["src/api/lib/*"],
+      "@utils/*": ["src/api/utils/*"],
+      "@routes/*": ["src/api/routes/*"],
+      "@config/*": ["src/config/index.ts"],
+      "@type/*": ["src/api/types/index.ts"],
+    },
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "typeRoots": ["src/api/types", "node_modules/@types"]
+  },
+  "tsconfig-paths": {
+    "baseUrl": ".",
+    "paths": {
+      "@models/*": ["src/api/models/*"],
+      "@controllers/*": ["src/api/controllers/*"],
+      "@helpers/*": ["src/api/helpers/*"],
+      "@services/*": ["src/api/services/*"],
+      "@lib/*": ["src/api/lib/*"],
+      "@utils/*": ["src/api/utils/*"],
+      "@routes/*": ["src/api/routes/*"],
+      "@config/*": ["src/config/index.ts"],
+      "@type/*": ["src/api/types/index.ts"],
+    }
+  }
+}

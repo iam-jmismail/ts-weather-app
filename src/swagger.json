@@ -1,0 +1,348 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "node-js-typeorm-basic",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "Posts"
+    },
+    {
+      "name": "Groups"
+    },
+    {
+      "name": "Users"
+    },
+    {
+      "name": "Comments"
+    }
+  ],
+  "paths": {
+    "/posts/create": {
+      "post": {
+        "summary": "Create new post ",
+        "x-apidog-folder": "Posts",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Posts"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apidog-ignore-properties": [],
+                "x-apidog-orders": []
+              },
+              "example": {
+                "title": "title",
+                "content": "content",
+                "user_id": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://www.apidog.com/web/project/364059/apis/api-3731671-run"
+      }
+    },
+    "/posts/{user_id}": {
+      "get": {
+        "summary": "List all posts",
+        "x-apidog-folder": "Posts",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Posts"],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://www.apidog.com/web/project/364059/apis/api-3731672-run"
+      }
+    },
+    "/groups/create": {
+      "post": {
+        "summary": "Create Group ",
+        "x-apidog-folder": "Groups",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Groups"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apidog-ignore-properties": [],
+                "x-apidog-orders": []
+              },
+              "example": {
+                "name": "Admin",
+                "description": "This is a sample description"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://www.apidog.com/web/project/364059/apis/api-3731674-run"
+      }
+    },
+    "/groups": {
+      "get": {
+        "summary": "List Groups ",
+        "x-apidog-folder": "Groups",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Groups"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://www.apidog.com/web/project/364059/apis/api-3731676-run"
+      }
+    },
+    "/users/create": {
+      "post": {
+        "summary": "Create User",
+        "x-apidog-folder": "Users",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Users"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apidog-ignore-properties": [],
+                "x-apidog-orders": []
+              },
+              "example": {
+                "first_name": "Mohamed",
+                "last_name": "Ismail",
+                "group_id": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://www.apidog.com/web/project/364059/apis/api-3731677-run"
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "List all users",
+        "x-apidog-folder": "Users",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Users"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://www.apidog.com/web/project/364059/apis/api-3731678-run"
+      }
+    },
+    "/users/comments/{post_id}": {
+      "post": {
+        "summary": "Create Post Comment",
+        "x-apidog-folder": "Comments",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Comments"],
+        "parameters": [
+          {
+            "name": "post_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apidog-ignore-properties": [],
+                "x-apidog-orders": []
+              },
+              "example": {
+                "title": "Sample Post",
+                "comment": "Sample Comment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://www.apidog.com/web/project/364059/apis/api-3731679-run"
+      }
+    },
+    "/comments/{post_id}": {
+      "get": {
+        "summary": "List comments by post",
+        "x-apidog-folder": "Comments",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Comments"],
+        "parameters": [
+          {
+            "name": "post_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://www.apidog.com/web/project/364059/apis/api-3731680-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000/api",
+      "description": "Develop Env"
+    }
+  ]
+}
