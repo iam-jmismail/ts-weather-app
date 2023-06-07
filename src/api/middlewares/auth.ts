@@ -27,7 +27,7 @@ export const authorize = async (req: Request, _res: Response, next: NextFunction
         if (!user_session?.login_status) throw new UnAuthorizedError("Session expired! Please login again.");
 
         // Access Resource if token is valid 
-        const user = await UserModel.findOne({ _id: user_session.user_id }).select({ email: 1, first_name: 1, last_name: 1 }) as RequestUserMeta
+        const user = await UserModel.findOne({ _id: user_session.user_id }).select({ email: 1, first_name: 1, last_name: 1, location : 1 }) as RequestUserMeta
         req.user = user
         next()
     } catch (error) {

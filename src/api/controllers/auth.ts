@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { ErrorObjectMap, JWTPayload, LoginRequest, RegisterRequest } from "@type/payload";
+import { ErrorObjectMap, JWTPayload, LoginRequest, RegisterRequest, UserEntity } from "@type/payload";
 import { CryptoPassword, generateToken } from "@lib/index";
 import { UserModel, UserSessionModel } from "@models/index";
 import { NotFoundError, ResourceConflictError, ValidationError } from "@helpers/error-Handler";
@@ -25,8 +25,8 @@ export const login = async (req: LoginRequest, res: Response, next: NextFunction
             email, first_name, last_name
         }
 
-        const access_token = generateToken<JWTPayload<typeof payload>>({ ...payload, token_type: 'access_token' }, '10m');
-        const refresh_token = generateToken<JWTPayload<typeof payload>>({ ...payload, token_type: 'refresh_token' }, '30m');
+        const access_token = generateToken<JWTPayload<typeof payload>>({ ...payload, token_type: 'access_token' }, '4h');
+        const refresh_token = generateToken<JWTPayload<typeof payload>>({ ...payload, token_type: 'refresh_token' }, '1d');
 
         // Create a Session 
         await UserSessionModel.create({
@@ -50,7 +50,7 @@ export const login = async (req: LoginRequest, res: Response, next: NextFunction
  */
 export const register = async (req: RegisterRequest, res: Response, next: NextFunction) => {
     try {
-        const { body: { email, first_name, last_name, password } } = req;
+        const { body: { email, first_name, last_name, password, location } } = req;
 
         // Check If User Exists 
         const user = await UserModel.findOne({ email })
@@ -69,7 +69,17 @@ export const register = async (req: RegisterRequest, res: Response, next: NextFu
         const hashed_password = await CryptoPassword.hashPassword(password)
 
         // Insert into DB
-        const created_user = await UserModel.create({ ...payload, token: access_token, password: hashed_password })
+        const user_data: Pick<UserEntity<number>, 'email' | 'first_name' | 'last_name' | 'location'> & {
+            token : string,
+            password : string,
+            _id? : string
+        } = {
+            ...payload, 
+            token: access_token, 
+            password: hashed_password, 
+        }
+        if(location) user_data['location'] = location;
+        const created_user = await UserModel.create(user_data)
 
         // Create a Session 
         await UserSessionModel.create({

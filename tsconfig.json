@@ -19,6 +19,7 @@
       "@routes/*": ["src/api/routes/*"],
       "@config/*": ["src/config/index.ts"],
       "@type/*": ["src/api/types/index.ts"],
+      "@api/*": ["src/api/helpers/api/index.ts"],
     },
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
@@ -40,6 +41,7 @@
       "@routes/*": ["src/api/routes/*"],
       "@config/*": ["src/config/index.ts"],
       "@type/*": ["src/api/types/index.ts"],
+      "@api/*": ["src/api/helpers/api/index.ts"],
     }
   }
 }

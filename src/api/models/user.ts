@@ -22,11 +22,11 @@ export const userSchema = new Schema<UserDocument>({
     },
     location: {
         lat: {
-            type: String,
+            type: Number,
             required: false
         },
         lng: {
-            type: String,
+            type: Number,
             required: false
         }
     },

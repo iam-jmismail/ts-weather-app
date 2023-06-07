@@ -26,4 +26,13 @@ export type JWTDecodedToken = {
 
 export type JWTAccessTokenExpiryAction = 'LOGIN' | 'REFRESH'
 
-export type RequestUserMeta = Pick<UserEntity, 'first_name' | 'last_name' | 'email'> & { _id: string }
+export type RequestUserMeta = Pick<UserEntity, 'first_name' | 'last_name' | 'email'> & { _id: string 
+    location? : Location<number>
+}
+
+
+/**
+ * Currently Supports - Arabic, English, Hindi, Turkish, Hebrew 
+ */
+export type SupportedLanguages = 'ar' | 'en' | 'hi' | 'tr' | 'he';
+export type Units = 'imperial' | 'metric'
